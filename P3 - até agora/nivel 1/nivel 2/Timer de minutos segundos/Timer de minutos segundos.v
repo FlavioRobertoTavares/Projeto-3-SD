@@ -9,6 +9,6 @@ module Controlador_timer (input wire  loadn, clrn, clock, en, input reg data[3:0
     Contador_mod10 DUT(.loadn(loadn), .clrn(clrn), .clock(clock), .enable(en), .data(data), .tc(tc1), .zero(zero1), .ones(sec_ones));
     Contador_mod6 DUT(.loadn(loadn), .clrn(clrn), .clock(clock), .enable(tc1), .data(sec_ones), .tens(sec_tens), .tc(tc2), .zero(zero2));
     Contador_mod10 DUT(.loadn(loadn), .clrn(clrn), .clock(clock), .enable(tc2), .data(sec_tens), .tc(tc3), .zero(zero3), .ones(mins));
-    assign zero <= zero1 && zero2 && zero3;
+    assign zero = zero1 && zero2 && zero3;
 
 endmodule
