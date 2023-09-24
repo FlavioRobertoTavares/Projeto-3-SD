@@ -9,7 +9,7 @@ module non_recycling_counter(
     always @(posedge clock or posedge clear) begin
         if (clear) begin
             counter <= 3'b000;
-          	non_recycling_counter_output <= 0;
+            non_recycling_counter_output <= 0;
         end else if (counter == 3) begin
                 counter <= counter + 1'b1;
                 non_recycling_counter_output <= 1;
