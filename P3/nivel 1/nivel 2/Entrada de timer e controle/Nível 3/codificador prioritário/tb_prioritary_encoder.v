@@ -5,6 +5,7 @@
     reg [9:0]keypad;
     reg enablen;
     wire [3:0]D;
+    wire valid;
 
     prioritary_encoder DUT
     (
@@ -17,23 +18,15 @@
         $dumpfile("tb_prioritary_encoder.vcd");
         $dumpvars(0, tb_prioritary_encoder);
 
-        enablen = 0;
-        repeat(2) begin
+        enablen = 1'b0;
 
+        repeat (2) begin
             enablen = ~enablen;
-        #5  keypad = 10'b0000000001;
-        #5  keypad = 10'b0000000010;
-        #5  keypad = 10'b0000000100;
-        #5  keypad = 10'b0000001000;
-        #5  keypad = 10'b0000010000;
-        #5  keypad = 10'b0000100000;
-        #5  keypad = 10'b0001000000;
-        #5  keypad = 10'b0010000000;
-        #5  keypad = 10'b0100000000;
-        #5  keypad = 10'b1000000000;
-        #5  keypad = 10'b0000000000;
-        #5  keypad = 10'b1001010010;
-            
+            for (integer i = 0; i < 10; i = i+1) begin
+                keypad = 10'b0000000001 << i; #5;
+            end
+            keypad = 10'b00_0000_0000; #5;
+            keypad = 10'b00_1000_0100; #5;
         end
 
     end
