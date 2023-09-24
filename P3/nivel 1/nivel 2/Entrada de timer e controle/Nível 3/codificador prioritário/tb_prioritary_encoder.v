@@ -21,7 +21,7 @@
         repeat(2) begin
 
             enablen = ~enablen;
-            keypad = 10'b0000000001;
+        #5  keypad = 10'b0000000001;
         #5  keypad = 10'b0000000010;
         #5  keypad = 10'b0000000100;
         #5  keypad = 10'b0000001000;
@@ -31,6 +31,8 @@
         #5  keypad = 10'b0010000000;
         #5  keypad = 10'b0100000000;
         #5  keypad = 10'b1000000000;
+        #5  keypad = 10'b0000000000;
+        #5  keypad = 10'b1001010010;
             
         end
 
