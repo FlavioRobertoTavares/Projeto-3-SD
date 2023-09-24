@@ -1,5 +1,5 @@
-`include "nivel 3\\Contador MOD6\\Contador MOD6.v"
-`include "nivel 3\\Contador MOD10\\Contador MOD10.v"
+`include "nivel 2\\Timer de minutos segundos\\nivel 3\\Contador MOD6\\Contador MOD6.v"
+`include "nivel 2\\Timer de minutos segundos\\nivel 3\\Contador MOD10\\Contador MOD10.v"
 
 module Controlador_timer (input wire  loadn, clrn, clock, en, input wire[3:0] data,
                           output wire zero, output wire [3:0] sec_ones, sec_tens, mins);

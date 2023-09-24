@@ -1,7 +1,7 @@
-`include "nivel 3/divisor frequencia 100/div_freq_100.v"
-`include "nivel 3/codificador prioritario/prioritary_encoder.v"
-`include "nivel 3/contador nao reciclavel/non_recycling_counter.v"
-`include "nivel 3/Multiplexador/mux.v"
+`include "nivel 2\\Entrada de timer e controle\\nivel 3\\divisor frequencia 100\\div_freq_100.v"
+`include "nivel 2\\Entrada de timer e controle\\nivel 3\\codificador prioritario\\prioritary_encoder.v"
+`include "nivel 2\\Entrada de timer e controle\\nivel 3\\contador nao reciclavel\\non_recycling_counter.v"
+`include "nivel 2\\Entrada de timer e controle\\nivel 3\Multiplexador\\mux.v"
 
 module encoder_timer_input_control (keypad, enablen, clk, D, loadn, pgt_1Hz);
        
@@ -12,7 +12,7 @@ module encoder_timer_input_control (keypad, enablen, clk, D, loadn, pgt_1Hz);
     output wire loadn;
     output pgt_1Hz;
 
-       wire clk_1Hz, single_edge;
+    wire clk_1Hz, single_edge;
 
        prioritary_encoder prioritary_encoder(keypad, enablen, D, loadn);
        div_freq_100 div_freq_100(clk, clk_1Hz);

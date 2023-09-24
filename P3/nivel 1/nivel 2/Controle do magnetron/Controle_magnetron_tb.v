@@ -3,17 +3,17 @@
 
 module Controle_magnetron_tb();
 
-    reg starn, stopn, clearn, door_closed, timer_done;
+    reg startn, stopn, clearn, door_closed, timer_done;
     wire mag_on;
 
-    Controle_magnetron DUT(.starn(starn), .stopn(stopn), .clearn(clearn), .door_closed(door_closed), .timer_done(timer_done),
+    Controle_magnetron DUT(.startn(startn), .stopn(stopn), .clearn(clearn), .door_closed(door_closed), .timer_done(timer_done),
                             .mag_on(mag_on));
 
     initial begin
         $dumpfile("Controle_magnetron_tb.vcd");
         $dumpvars(0, Controle_magnetron_tb);
 
-        starn = 0; door_closed = 1; timer_done = 0;
+        startn = 0; door_closed = 1; timer_done = 0;
         stopn = 1; clearn = 1;  
 
         #10 door_closed = 0; //abriu a porta

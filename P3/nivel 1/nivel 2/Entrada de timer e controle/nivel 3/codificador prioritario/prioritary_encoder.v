@@ -5,7 +5,9 @@ module prioritary_encoder  (keypad, enablen, D, valid);
 
     output reg[3:0] D;
     output wire valid;
- 
+    initial D = 4'hF;
+
+
     always @(keypad)
         if (!enablen)
             D = (keypad == 10'b0000000001)? 0:
