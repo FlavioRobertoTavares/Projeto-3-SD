@@ -13,8 +13,6 @@
         .D (D)
     );
 
-    always #(CLK_PERIOD/2) clk=~clk;
-
     initial begin
         $dumpfile("tb_prioritary_encoder.vcd");
         $dumpvars(0, tb_prioritary_encoder);
