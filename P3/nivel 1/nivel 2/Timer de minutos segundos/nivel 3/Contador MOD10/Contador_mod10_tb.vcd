@@ -1,0 +1,165 @@
+$date
+	Sat Sep 23 21:53:45 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module Contador_mod10_tb $end
+$var wire 1 ! zero $end
+$var wire 1 " tc $end
+$var wire 4 # ones [3:0] $end
+$var reg 1 $ clock $end
+$var reg 1 % clrn $end
+$var reg 4 & data [3:0] $end
+$var reg 1 ' enable $end
+$var reg 1 ( loadn $end
+$var integer 32 ) i [31:0] $end
+$scope module DUT $end
+$var wire 1 $ clock $end
+$var wire 1 % clrn $end
+$var wire 4 * data [3:0] $end
+$var wire 1 ' enable $end
+$var wire 1 ( loadn $end
+$var wire 1 " tc $end
+$var wire 1 ! zero $end
+$var reg 4 + ones [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+bx +
+b1000 *
+bx )
+1(
+0'
+b1000 &
+1%
+0$
+bx #
+0"
+x!
+$end
+#5
+0!
+b1000 #
+b1000 +
+b0 )
+1$
+0(
+#10
+b1 )
+0$
+1(
+#15
+b111 #
+b111 +
+b10 )
+1$
+1'
+#20
+b11 )
+0$
+#25
+b110 #
+b110 +
+b100 )
+1$
+#30
+b101 )
+0$
+#35
+b101 #
+b101 +
+b110 )
+1$
+#40
+b111 )
+0$
+#45
+b100 #
+b100 +
+b1000 )
+1$
+#50
+b1001 )
+0$
+#55
+b11 #
+b11 +
+b1010 )
+1$
+#60
+b1011 )
+0$
+#65
+b10 #
+b10 +
+b1100 )
+1$
+#70
+b1101 )
+0$
+#75
+b1 #
+b1 +
+b1110 )
+1$
+#80
+b1111 )
+0$
+#85
+1"
+1!
+b0 #
+b0 +
+b10000 )
+1$
+#90
+b10001 )
+0$
+#95
+0"
+0!
+b1001 #
+b1001 +
+b10010 )
+1$
+#100
+b10011 )
+0$
+#105
+b1000 #
+b1000 +
+b10100 )
+1$
+#110
+b10101 )
+0$
+#115
+b111 #
+b111 +
+b10110 )
+1$
+#120
+b10111 )
+0$
+#125
+b110 #
+b110 +
+b11000 )
+1$
+#130
+b11001 )
+0$
+#135
+b101 #
+b101 +
+b11010 )
+1$

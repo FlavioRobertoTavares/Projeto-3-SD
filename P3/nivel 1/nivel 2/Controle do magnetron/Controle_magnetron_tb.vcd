@@ -1,0 +1,79 @@
+$date
+	Sat Sep 23 18:32:46 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module Controle_magnetron_tb $end
+$var wire 1 ! mag_on $end
+$var reg 1 " clearn $end
+$var reg 1 # door_closed $end
+$var reg 1 $ starn $end
+$var reg 1 % stopn $end
+$var reg 1 & timer_done $end
+$scope module DUT $end
+$var wire 1 " clearn $end
+$var wire 1 # door_closed $end
+$var wire 1 $ starn $end
+$var wire 1 % stopn $end
+$var wire 1 & timer_done $end
+$var wire 1 ' set $end
+$var wire 1 ( reset $end
+$var wire 1 ! mag_on $end
+$scope module DUT1 $end
+$var wire 1 " clearn $end
+$var wire 1 # door_closed $end
+$var wire 1 ( reset $end
+$var wire 1 ' set $end
+$var wire 1 $ starn $end
+$var wire 1 % stopn $end
+$var wire 1 & timer_done $end
+$upscope $end
+$scope module DUT2 $end
+$var wire 1 ( reset $end
+$var wire 1 ' set $end
+$var reg 1 ! mag_on $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0(
+1'
+0&
+1%
+0$
+1#
+1"
+1!
+$end
+#10
+0!
+0'
+1(
+0#
+#15
+1!
+1'
+0(
+1#
+#20
+0!
+1(
+0%
+#25
+1!
+0(
+1%
+#30
+0!
+1(
+0'
+1&

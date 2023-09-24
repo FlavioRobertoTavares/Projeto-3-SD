@@ -1,0 +1,89 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001be619c7040 .scope module, "AND_OR_NOT_logic_tb" "AND_OR_NOT_logic_tb" 2 4;
+ .timescale -12 -12;
+v000001be619d1930_0 .var "clearn", 0 0;
+v000001be619d20b0_0 .var "door_closed", 0 0;
+v000001be619d2510_0 .net "reset", 0 0, L_000001be619d2bd0;  1 drivers
+v000001be619d1d90_0 .net "set", 0 0, L_000001be61b76780;  1 drivers
+v000001be619d2010_0 .var "starn", 0 0;
+v000001be619d1e30_0 .var "stopn", 0 0;
+v000001be619d1ed0_0 .var "timer_done", 0 0;
+S_000001be619d6980 .scope module, "DUT" "AND_OR_NOT_logic" 2 9, 3 1 0, S_000001be619c7040;
+ .timescale -12 -12;
+    .port_info 0 /INPUT 1 "starn";
+    .port_info 1 /INPUT 1 "stopn";
+    .port_info 2 /INPUT 1 "clearn";
+    .port_info 3 /INPUT 1 "door_closed";
+    .port_info 4 /INPUT 1 "timer_done";
+    .port_info 5 /OUTPUT 1 "set";
+    .port_info 6 /OUTPUT 1 "reset";
+L_000001be619d6d90 .functor AND 1, L_000001be619d1c50, v000001be619d20b0_0, C4<1>, C4<1>;
+L_000001be61b76780 .functor AND 1, L_000001be619d6d90, L_000001be619d1a70, C4<1>, C4<1>;
+L_000001be61b769c0 .functor OR 1, L_000001be619d1bb0, L_000001be619d1f70, C4<0>, C4<0>;
+L_000001be61a1fca0 .functor OR 1, L_000001be61b769c0, L_000001be619d19d0, C4<0>, C4<0>;
+L_000001be619d2bd0 .functor OR 1, L_000001be61a1fca0, v000001be619d1ed0_0, C4<0>, C4<0>;
+v000001be619d6b10_0 .net *"_ivl_1", 0 0, L_000001be619d1c50;  1 drivers
+v000001be61b76500_0 .net *"_ivl_11", 0 0, L_000001be619d1f70;  1 drivers
+v000001be619d6bb0_0 .net *"_ivl_12", 0 0, L_000001be61b769c0;  1 drivers
+v000001be619d6c50_0 .net *"_ivl_15", 0 0, L_000001be619d19d0;  1 drivers
+v000001be619d6cf0_0 .net *"_ivl_16", 0 0, L_000001be61a1fca0;  1 drivers
+v000001be61a1f840_0 .net *"_ivl_3", 0 0, L_000001be619d6d90;  1 drivers
+v000001be61a1f8e0_0 .net *"_ivl_5", 0 0, L_000001be619d1a70;  1 drivers
+v000001be61a1f980_0 .net *"_ivl_9", 0 0, L_000001be619d1bb0;  1 drivers
+v000001be61a1fa20_0 .net "clearn", 0 0, v000001be619d1930_0;  1 drivers
+v000001be61a1fac0_0 .net "door_closed", 0 0, v000001be619d20b0_0;  1 drivers
+v000001be61a1fb60_0 .net "reset", 0 0, L_000001be619d2bd0;  alias, 1 drivers
+v000001be61a1fc00_0 .net "set", 0 0, L_000001be61b76780;  alias, 1 drivers
+v000001be619d2470_0 .net "starn", 0 0, v000001be619d2010_0;  1 drivers
+v000001be619d1b10_0 .net "stopn", 0 0, v000001be619d1e30_0;  1 drivers
+v000001be619d1cf0_0 .net "timer_done", 0 0, v000001be619d1ed0_0;  1 drivers
+L_000001be619d1c50 .reduce/nor v000001be619d2010_0;
+L_000001be619d1a70 .reduce/nor v000001be619d1ed0_0;
+L_000001be619d1bb0 .reduce/nor v000001be619d1e30_0;
+L_000001be619d1f70 .reduce/nor v000001be619d1930_0;
+L_000001be619d19d0 .reduce/nor v000001be619d20b0_0;
+    .scope S_000001be619c7040;
+T_0 ;
+    %vpi_call 2 13 "$dumpfile", "AND_OR_NOT_logic_tb.vcd" {0 0 0};
+    %vpi_call 2 14 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001be619c7040 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001be619d2010_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001be619d20b0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001be619d1ed0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001be619d1e30_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001be619d1930_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001be619d20b0_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001be619d20b0_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001be619d1e30_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001be619d1e30_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001be619d1ed0_0, 0, 1;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "AND_OR_NOT_logic_tb.v";
+    "./AND OR NOT logico.v";

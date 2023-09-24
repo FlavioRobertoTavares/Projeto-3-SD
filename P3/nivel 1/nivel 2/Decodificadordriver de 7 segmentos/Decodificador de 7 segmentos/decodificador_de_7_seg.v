@@ -1,5 +1,5 @@
-module decodificador_de_7_seg (input wire sec_ones[3:0], sec_tens[3:0], mins[3:0],
-                                    output reg sec_ones_segs[6:0], sec_tens_segs[6:0], mins_segs[6:0]);
+module decodificador_de_7_seg (input wire [3:0] sec_ones, sec_tens, mins,
+                                    output wire [6:0] sec_ones_segs, sec_tens_segs, mins_segs);
 
 
     assign sec_ones_segs = 

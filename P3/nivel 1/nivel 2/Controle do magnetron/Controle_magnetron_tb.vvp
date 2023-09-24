@@ -1,0 +1,175 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000024a45be9230 .scope module, "Controle_magnetron_tb" "Controle_magnetron_tb" 2 4;
+ .timescale -12 -12;
+v0000024a45bf3310_0 .var "clearn", 0 0;
+v0000024a45bf31d0_0 .var "door_closed", 0 0;
+v0000024a45bf3270_0 .net "mag_on", 0 0, v0000024a45bf2a50_0;  1 drivers
+v0000024a45bf3630_0 .var "starn", 0 0;
+v0000024a45bf2f50_0 .var "stopn", 0 0;
+v0000024a45bf29b0_0 .var "timer_done", 0 0;
+S_0000024a45bfa000 .scope module, "DUT" "Controle_magnetron" 2 9, 3 4 0, S_0000024a45be9230;
+ .timescale -12 -12;
+    .port_info 0 /INPUT 1 "starn";
+    .port_info 1 /INPUT 1 "stopn";
+    .port_info 2 /INPUT 1 "clearn";
+    .port_info 3 /INPUT 1 "door_closed";
+    .port_info 4 /INPUT 1 "timer_done";
+    .port_info 5 /OUTPUT 1 "mag_on";
+v0000024a45bf2d70_0 .net "clearn", 0 0, v0000024a45bf3310_0;  1 drivers
+v0000024a45bf2ff0_0 .net "door_closed", 0 0, v0000024a45bf31d0_0;  1 drivers
+v0000024a45bf3770_0 .net "mag_on", 0 0, v0000024a45bf2a50_0;  alias, 1 drivers
+v0000024a45bf33b0_0 .net "reset", 0 0, L_0000024a45b3b330;  1 drivers
+v0000024a45bf2e10_0 .net "set", 0 0, L_0000024a45b3aed0;  1 drivers
+v0000024a45bf2eb0_0 .net "starn", 0 0, v0000024a45bf3630_0;  1 drivers
+v0000024a45bf2910_0 .net "stopn", 0 0, v0000024a45bf2f50_0;  1 drivers
+v0000024a45bf3130_0 .net "timer_done", 0 0, v0000024a45bf29b0_0;  1 drivers
+S_0000024a45bfa190 .scope module, "DUT1" "AND_OR_NOT_logic" 3 9, 4 1 0, S_0000024a45bfa000;
+ .timescale -12 -12;
+    .port_info 0 /INPUT 1 "starn";
+    .port_info 1 /INPUT 1 "stopn";
+    .port_info 2 /INPUT 1 "clearn";
+    .port_info 3 /INPUT 1 "door_closed";
+    .port_info 4 /INPUT 1 "timer_done";
+    .port_info 5 /OUTPUT 1 "set";
+    .port_info 6 /OUTPUT 1 "reset";
+L_0000024a45b3b4f0 .functor AND 1, L_0000024a45bf3450, v0000024a45bf31d0_0, C4<1>, C4<1>;
+L_0000024a45b3aed0 .functor AND 1, L_0000024a45b3b4f0, L_0000024a45bf3590, C4<1>, C4<1>;
+L_0000024a45b3b3a0 .functor OR 1, L_0000024a45bf2c30, L_0000024a45c48150, C4<0>, C4<0>;
+L_0000024a45b3b100 .functor OR 1, L_0000024a45b3b3a0, L_0000024a45c49370, C4<0>, C4<0>;
+L_0000024a45b3b330 .functor OR 1, L_0000024a45b3b100, v0000024a45bf29b0_0, C4<0>, C4<0>;
+v0000024a45bfa320_0 .net *"_ivl_1", 0 0, L_0000024a45bf3450;  1 drivers
+v0000024a45bfa3c0_0 .net *"_ivl_11", 0 0, L_0000024a45c48150;  1 drivers
+v0000024a45bc2570_0 .net *"_ivl_12", 0 0, L_0000024a45b3b3a0;  1 drivers
+v0000024a45bc2610_0 .net *"_ivl_15", 0 0, L_0000024a45c49370;  1 drivers
+v0000024a45bc26b0_0 .net *"_ivl_16", 0 0, L_0000024a45b3b100;  1 drivers
+v0000024a45bc2750_0 .net *"_ivl_3", 0 0, L_0000024a45b3b4f0;  1 drivers
+v0000024a45bc27f0_0 .net *"_ivl_5", 0 0, L_0000024a45bf3590;  1 drivers
+v0000024a45bc2890_0 .net *"_ivl_9", 0 0, L_0000024a45bf2c30;  1 drivers
+v0000024a45bc2930_0 .net "clearn", 0 0, v0000024a45bf3310_0;  alias, 1 drivers
+v0000024a45b3bc20_0 .net "door_closed", 0 0, v0000024a45bf31d0_0;  alias, 1 drivers
+v0000024a45bf3090_0 .net "reset", 0 0, L_0000024a45b3b330;  alias, 1 drivers
+v0000024a45bf2cd0_0 .net "set", 0 0, L_0000024a45b3aed0;  alias, 1 drivers
+v0000024a45bf2b90_0 .net "starn", 0 0, v0000024a45bf3630_0;  alias, 1 drivers
+v0000024a45bf2870_0 .net "stopn", 0 0, v0000024a45bf2f50_0;  alias, 1 drivers
+v0000024a45bf2af0_0 .net "timer_done", 0 0, v0000024a45bf29b0_0;  alias, 1 drivers
+L_0000024a45bf3450 .reduce/nor v0000024a45bf3630_0;
+L_0000024a45bf3590 .reduce/nor v0000024a45bf29b0_0;
+L_0000024a45bf2c30 .reduce/nor v0000024a45bf2f50_0;
+L_0000024a45c48150 .reduce/nor v0000024a45bf3310_0;
+L_0000024a45c49370 .reduce/nor v0000024a45bf31d0_0;
+S_0000024a45b3bcc0 .scope module, "DUT2" "latch_sr" 3 12, 5 1 0, S_0000024a45bfa000;
+ .timescale -12 -12;
+    .port_info 0 /INPUT 1 "set";
+    .port_info 1 /INPUT 1 "reset";
+    .port_info 2 /OUTPUT 1 "mag_on";
+v0000024a45bf2a50_0 .var "mag_on", 0 0;
+v0000024a45bf36d0_0 .net "reset", 0 0, L_0000024a45b3b330;  alias, 1 drivers
+v0000024a45bf34f0_0 .net "set", 0 0, L_0000024a45b3aed0;  alias, 1 drivers
+E_0000024a45be8110 .event anyedge, v0000024a45bf3090_0, v0000024a45bf2cd0_0;
+    .scope S_0000024a45b3bcc0;
+T_0 ;
+    %wait E_0000024a45be8110;
+    %load/vec4 v0000024a45bf34f0_0;
+    %pad/u 32;
+    %cmpi/e 0, 0, 32;
+    %flag_get/vec4 4;
+    %jmp/0 T_0.2, 4;
+    %load/vec4 v0000024a45bf36d0_0;
+    %pad/u 32;
+    %pushi/vec4 1, 0, 32;
+    %cmp/e;
+    %flag_get/vec4 4;
+    %and;
+T_0.2;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0000024a45bf2a50_0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v0000024a45bf34f0_0;
+    %pad/u 32;
+    %cmpi/e 1, 0, 32;
+    %flag_get/vec4 4;
+    %jmp/0 T_0.5, 4;
+    %load/vec4 v0000024a45bf36d0_0;
+    %pad/u 32;
+    %pushi/vec4 0, 0, 32;
+    %cmp/e;
+    %flag_get/vec4 4;
+    %and;
+T_0.5;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.3, 8;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v0000024a45bf2a50_0, 0;
+    %jmp T_0.4;
+T_0.3 ;
+    %load/vec4 v0000024a45bf34f0_0;
+    %pad/u 32;
+    %cmpi/e 1, 0, 32;
+    %flag_get/vec4 4;
+    %jmp/0 T_0.8, 4;
+    %load/vec4 v0000024a45bf36d0_0;
+    %pad/u 32;
+    %pushi/vec4 1, 0, 32;
+    %cmp/e;
+    %flag_get/vec4 4;
+    %and;
+T_0.8;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.6, 8;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0000024a45bf2a50_0, 0;
+T_0.6 ;
+T_0.4 ;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_0000024a45be9230;
+T_1 ;
+    %vpi_call 2 13 "$dumpfile", "Controle_magnetron_tb.vcd" {0 0 0};
+    %vpi_call 2 14 "$dumpvars", 32'sb00000000000000000000000000000000, S_0000024a45be9230 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000024a45bf3630_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000024a45bf31d0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000024a45bf29b0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000024a45bf2f50_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000024a45bf3310_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000024a45bf31d0_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000024a45bf31d0_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000024a45bf2f50_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000024a45bf2f50_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000024a45bf29b0_0, 0, 1;
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 6;
+    "N/A";
+    "<interactive>";
+    "Controle_magnetron_tb.v";
+    "./Controle do magnetron.v";
+    "./nivel 3\\AND OR NOT logico\\AND OR NOT logico.v";
+    "./nivel 3\\Latch SR\\latch_sr.v";

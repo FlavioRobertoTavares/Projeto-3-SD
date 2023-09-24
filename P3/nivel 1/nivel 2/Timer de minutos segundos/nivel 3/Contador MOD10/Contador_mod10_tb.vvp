@@ -1,0 +1,157 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001d1df2076f0 .scope module, "Contador_mod10_tb" "Contador_mod10_tb" 2 4;
+ .timescale -12 -12;
+v000001d1df261b70_0 .var "clock", 0 0;
+v000001d1df2618f0_0 .var "clrn", 0 0;
+v000001d1df261c10_0 .var "data", 3 0;
+v000001d1df261210_0 .var "enable", 0 0;
+v000001d1df261cb0_0 .var/i "i", 31 0;
+v000001d1df261850_0 .var "loadn", 0 0;
+v000001d1df261ad0_0 .net "ones", 3 0, v000001d1df261d50_0;  1 drivers
+v000001d1df261df0_0 .net "tc", 0 0, L_000001d1df21a2c0;  1 drivers
+v000001d1df2615d0_0 .net "zero", 0 0, L_000001d1df261030;  1 drivers
+S_000001d1df35daf0 .scope module, "DUT" "Contador_mod10" 2 13, 3 1 0, S_000001d1df2076f0;
+ .timescale -12 -12;
+    .port_info 0 /INPUT 1 "loadn";
+    .port_info 1 /INPUT 1 "clrn";
+    .port_info 2 /INPUT 1 "clock";
+    .port_info 3 /INPUT 1 "enable";
+    .port_info 4 /INPUT 4 "data";
+    .port_info 5 /OUTPUT 1 "tc";
+    .port_info 6 /OUTPUT 1 "zero";
+    .port_info 7 /OUTPUT 4 "ones";
+L_000001d1df21a2c0 .functor AND 1, v000001d1df261210_0, L_000001d1df261030, C4<1>, C4<1>;
+v000001d1df356780_0 .net *"_ivl_0", 31 0, L_000001d1df261990;  1 drivers
+L_000001d1df2620d0 .functor BUFT 1, C4<00>, C4<0>, C4<0>, C4<0>;
+v000001d1df356500_0 .net/2s *"_ivl_10", 1 0, L_000001d1df2620d0;  1 drivers
+v000001d1df207880_0 .net *"_ivl_12", 1 0, L_000001d1df261e90;  1 drivers
+L_000001d1df261ff8 .functor BUFT 1, C4<0000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v000001d1df2144d0_0 .net *"_ivl_3", 27 0, L_000001d1df261ff8;  1 drivers
+L_000001d1df262040 .functor BUFT 1, C4<00000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v000001d1df214570_0 .net/2u *"_ivl_4", 31 0, L_000001d1df262040;  1 drivers
+v000001d1df214610_0 .net *"_ivl_6", 0 0, L_000001d1df2613f0;  1 drivers
+L_000001d1df262088 .functor BUFT 1, C4<01>, C4<0>, C4<0>, C4<0>;
+v000001d1df35dc80_0 .net/2s *"_ivl_8", 1 0, L_000001d1df262088;  1 drivers
+v000001d1df35dd20_0 .net "clock", 0 0, v000001d1df261b70_0;  1 drivers
+v000001d1df261530_0 .net "clrn", 0 0, v000001d1df2618f0_0;  1 drivers
+v000001d1df261490_0 .net "data", 3 0, v000001d1df261c10_0;  1 drivers
+v000001d1df261f30_0 .net "enable", 0 0, v000001d1df261210_0;  1 drivers
+v000001d1df2612b0_0 .net "loadn", 0 0, v000001d1df261850_0;  1 drivers
+v000001d1df261d50_0 .var "ones", 3 0;
+v000001d1df261a30_0 .net "tc", 0 0, L_000001d1df21a2c0;  alias, 1 drivers
+v000001d1df261170_0 .net "zero", 0 0, L_000001d1df261030;  alias, 1 drivers
+E_000001d1df205ae0 .event posedge, v000001d1df35dd20_0;
+E_000001d1df205e60 .event negedge, v000001d1df261530_0;
+L_000001d1df261990 .concat [ 4 28 0 0], v000001d1df261d50_0, L_000001d1df261ff8;
+L_000001d1df2613f0 .cmp/eq 32, L_000001d1df261990, L_000001d1df262040;
+L_000001d1df261e90 .functor MUXZ 2, L_000001d1df2620d0, L_000001d1df262088, L_000001d1df2613f0, C4<>;
+L_000001d1df261030 .part L_000001d1df261e90, 0, 1;
+    .scope S_000001d1df35daf0;
+T_0 ;
+    %wait E_000001d1df205e60;
+    %load/vec4 v000001d1df261530_0;
+    %pad/u 32;
+    %cmpi/e 0, 0, 32;
+    %jmp/0xz  T_0.0, 4;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v000001d1df261d50_0, 0, 4;
+T_0.0 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_000001d1df35daf0;
+T_1 ;
+    %wait E_000001d1df205ae0;
+    %load/vec4 v000001d1df261f30_0;
+    %pad/u 32;
+    %cmpi/e 1, 0, 32;
+    %jmp/0xz  T_1.0, 4;
+    %load/vec4 v000001d1df261d50_0;
+    %pad/u 32;
+    %cmpi/e 0, 0, 32;
+    %jmp/0xz  T_1.2, 4;
+    %pushi/vec4 9, 0, 4;
+    %assign/vec4 v000001d1df261d50_0, 0;
+    %jmp T_1.3;
+T_1.2 ;
+    %load/vec4 v000001d1df261d50_0;
+    %subi 1, 0, 4;
+    %assign/vec4 v000001d1df261d50_0, 0;
+T_1.3 ;
+    %jmp T_1.1;
+T_1.0 ;
+    %load/vec4 v000001d1df2612b0_0;
+    %pad/u 32;
+    %cmpi/e 0, 0, 32;
+    %jmp/0xz  T_1.4, 4;
+    %load/vec4 v000001d1df261490_0;
+    %assign/vec4 v000001d1df261d50_0, 0;
+T_1.4 ;
+T_1.1 ;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_000001d1df2076f0;
+T_2 ;
+    %vpi_call 2 17 "$dumpfile", "Contador_mod10_tb.vcd" {0 0 0};
+    %vpi_call 2 18 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001d1df2076f0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %cassign/vec4 v000001d1df261850_0;
+    %pushi/vec4 0, 0, 1;
+    %cassign/vec4 v000001d1df261210_0;
+    %pushi/vec4 1, 0, 1;
+    %cassign/vec4 v000001d1df2618f0_0;
+    %pushi/vec4 8, 0, 4;
+    %cassign/vec4 v000001d1df261c10_0;
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %cassign/vec4 v000001d1df261850_0;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %cassign/vec4 v000001d1df261850_0;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %cassign/vec4 v000001d1df261210_0;
+    %end;
+    .thread T_2;
+    .scope S_000001d1df2076f0;
+T_3 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001d1df261b70_0, 0, 1;
+    %end;
+    .thread T_3;
+    .scope S_000001d1df2076f0;
+T_4 ;
+    %delay 5, 0;
+    %load/vec4 v000001d1df261b70_0;
+    %inv;
+    %store/vec4 v000001d1df261b70_0, 0, 1;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v000001d1df261cb0_0, 0, 32;
+T_4.0 ;
+    %load/vec4 v000001d1df261cb0_0;
+    %cmpi/s 26, 0, 32;
+    %jmp/0xz T_4.1, 5;
+    %delay 5, 0;
+    %load/vec4 v000001d1df261b70_0;
+    %inv;
+    %store/vec4 v000001d1df261b70_0, 0, 1;
+    %load/vec4 v000001d1df261cb0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v000001d1df261cb0_0, 0, 32;
+    %jmp T_4.0;
+T_4.1 ;
+    %end;
+    .thread T_4;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "Contador_mod10_tb.v";
+    "./Contador MOD10.v";
