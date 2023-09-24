@@ -37,9 +37,13 @@ module tb_encoder_timer_input_control;
             end
         end
         keypad = 10'h80;
-        repeat(4) #5 clk =~clk;
+        repeat(5) #5 clk =~clk;
         keypad = 10'h84;
-        repeat(6) #5 clk =~clk;
+        repeat(15) #5 clk =~clk;
+        keypad = 10'h100;
+        repeat(10) #5 clk =~clk;
+        keypad = 10'h140;
+        repeat(10) #5 clk =~clk;
 
     end
 
