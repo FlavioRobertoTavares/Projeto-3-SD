@@ -1,0 +1,54 @@
+$date
+	Sun Sep 24 23:34:34 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module mux_teste $end
+$var wire 1 ! Q_TB $end
+$var reg 1 " clk_TB $end
+$var reg 1 # saida_contador_TB $end
+$var reg 1 $ sel_TB $end
+$scope module DUT $end
+$var wire 1 " clk_1Hz $end
+$var wire 1 # non_recycling_counter_output $end
+$var wire 1 $ sel $end
+$var reg 1 ! pgt_1Hz $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+1$
+0#
+1"
+1!
+$end
+#5
+0!
+0$
+#10
+0"
+1#
+1$
+#15
+1!
+0$
+#20
+1"
+1$
+#25
+0$
+#30
+0!
+0"
+0#
+1$
+#35
+0$
