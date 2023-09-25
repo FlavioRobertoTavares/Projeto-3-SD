@@ -1,0 +1,58 @@
+$date
+	Sun Sep 24 23:18:12 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module non_recycling_counter_teste $end
+$var wire 1 ! Q_TB $end
+$var reg 1 " clear_TB $end
+$var reg 1 # clock_TB $end
+$var reg 1 $ contador_TB $end
+$scope module DUT $end
+$var wire 1 " clear $end
+$var wire 1 # clock $end
+$var reg 3 % counter [2:0] $end
+$var reg 1 ! non_recycling_counter_output $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 %
+0$
+1#
+1"
+0!
+$end
+#5
+1$
+#10
+0"
+#20
+0#
+#30
+b1 %
+1#
+#40
+0#
+#50
+b10 %
+1#
+#60
+0#
+#70
+b11 %
+1#
+#80
+0#
+#90
+1!
+b100 %
+1#
