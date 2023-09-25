@@ -1,0 +1,3 @@
+Todos os códigos foram feitos pelo Vscode e simualdos pelos comandos de console para gerar o .vvp e .vcd e abrir o GTKwave.
+Pode ser necessário alterar o caminho dos arquivos no "`include" para simular novos arquivos .vvp, se atente a isso para conseguir fazer corretamente e não gerar erros.
+Todos os códigos foram feitos pelos membros do grupo.
