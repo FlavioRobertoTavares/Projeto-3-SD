@@ -7,6 +7,8 @@ module Contador_mod6 (input wire loadn, clrn, clock, enable, input wire [3:0] da
             tens = 0;
     end
 
+    initial tens = 0;
+
     assign zero = (tens == 0)? 1:0;
     assign tc = enable && zero;
 
