@@ -1,6 +1,5 @@
-`timescale 1ms/1ms
+`timescale 1s/1ns
 `include "Controlador_do_forno_de_micro_ondas.v"
-
 
 module Controlador_do_forno_de_micro_ondas_tb();
 
@@ -9,90 +8,123 @@ module Controlador_do_forno_de_micro_ondas_tb();
     wire mag_on;
     wire[6:0] sec_ones_segs, sec_tens_segs, mins_segs;
 
-    Controlador_do_forno_de_micro_ondas DUT(.startn(startn), .stopn(stopn), .clearn(clearn), .door_closed(door_closed), .clock(clock), .keypad(keypad),
-                                            .mag_on(mag_on), .sec_ones_segs(sec_ones_segs), .sec_tens_segs(sec_tens_segs), .mins_segs(mins_segs));
+    Controlador_do_forno_de_micro_ondas DUT(
+        .startn(startn),
+        .stopn(stopn),
+        .clearn(clearn),
+        .door_closed(door_closed),
+        .clock(clock),
+        .keypad(keypad),
+        .mag_on(mag_on),
+        .sec_ones_segs(sec_ones_segs),
+        .sec_tens_segs(sec_tens_segs),
+        .mins_segs(mins_segs)
+        );
 
     initial clock = 0;
 
-    always #5 clock = ~clock;
+    //parameter secs = 1000;
+    parameter Wait = 0.5;
 
+    always #0.005 clock = ~clock;
 
     initial begin
         $dumpfile("Controlador_do_forno_de_micro_ondas_tb.vcd");
         $dumpvars(0, Controlador_do_forno_de_micro_ondas_tb);
     end
 
-        initial begin
-            keypad = 9'b000000000;
-            door_closed = 1;
-            stopn = 1;
-            startn = 1;
+    initial begin
 
-            // Inicializando o contador
-            clearn = 1; #1;
-            clearn = 0; #1;
-            clearn = 1;
+        keypad = 0; startn = 1; stopn = 1; clearn =1; door_closed = 1;
 
-            // Digitando o 2
-            #1100;
-            keypad = 9'b000000100;
-            #1100;
-            keypad = 9'b000000000;
+        //Caso 0: Funcionamento normal
 
-            // Digitando o 5
-            #1100;
-            keypad = 9'b000100000;
-            #1100;
-            keypad = 9'b000000000;
+        //Wait = 0.5;
+        #(Wait) keypad = 1<< 1;
+        #(Wait) keypad = 0;
+        #(Wait) keypad = 1<< 3;
+        #(Wait) keypad = 0;
+        #(Wait) keypad = 1<< 0;
+        #(Wait) keypad = 0;
 
-            // Digitando o 9
-            #1100;
-            keypad = 10'b1000000000;
-            #1100;
-            keypad = 9'b000000000;
+        //Alguns casos podem ser testados durante o caso 0:
 
-            // Tentando abrir
-            #1100;
-            startn = 0;
-            #1100;
-            startn = 1;
-            #1100;
+            //Caso 1: Tentar ligar com a porta aberta
+
+            #(Wait) door_closed = 0;
+
+            #(Wait) startn = 0;
+            #(Wait) startn = 1;
+
+            #(Wait) door_closed = 1;
+
+            #(Wait) startn = 0;
+            #(Wait) startn = 1;
+
+            //Caso 2: Apertar start com microondas ligado
+
+            #5 startn = 0;
+            #(Wait) startn = 1;
+
+            //Caso 3: abrir a porta com o microondas ligado
+
+            #5 door_closed = 0;
+            #5 door_closed = 1;
+
+            #5 startn = 0;
+            #(Wait) startn = 1;
+
+            //Caso 4: apertar stop
+
+            #5 stopn = 0;
+            #5 stopn = 1;
+
+            #5 startn = 0;
+            #(Wait) startn = 1;
 
 
-            // Digitando o 9
-            #1100;
-            keypad = 10'b1000000000;
-            #1100;
-            keypad = 9'b000000000;
+        #80;
 
-            // Digitando o 9
-            #1100;
-            keypad = 10'b1000000000;
-            #1100;
-            keypad = 9'b000000000;
+        //Caso 5: Teste do Clear e tentar apertar dois botões quase que simultaneamente
+        
+        //Wait = 0.06;
+        #(Wait);
+        
+        #(Wait) keypad = 1<< 8;
+        #(Wait) keypad = 0;
+        #(Wait) keypad = 1<< 5;
+        #(Wait) keypad = 0;
+        #(Wait) keypad = 1<< 1;
+        #(Wait) keypad = 0;
 
-            // Fechando a porta
-            door_closed = 1;
-            #1000;
-            startn = 0;
-            #1000;
-            startn = 1;
-            #2000;
-            // Pausando o timer
-            stopn = 0;
-            #1000;
-            stopn = 1;
-            #1000;
-            startn = 0;
-            #1000;
-            startn = 1;
-            #2000;
-            // Abrindo porta
-            door_closed = 0;
-            #1000;
-            door_closed = 1;
-            #3000000;
-            $finish();
+        #(Wait) clearn = 0;
+        #(Wait) clearn = 1;
+
+        //5.1 Intervalo MAIOR que 4 bordas de relógio (40ms)
+
+        #(Wait) keypad = 1<< 8;
+        #(Wait) keypad = 0;
+        #(Wait) keypad = 1<< 5;
+        #(Wait) keypad = 10'b0000100010;
+        #(Wait) keypad = 0;
+        #(Wait);
+
+        #(Wait) clearn = 0;
+        #(Wait) clearn = 1;
+
+        //5.2 Intervalo MENOR que 4 bordas de relógio (40ms)
+
+        #(Wait) keypad = 1<< 8;
+        #(Wait) keypad = 0;
+        #(Wait) keypad = 1<< 5;
+        #0.03   keypad = 10'b0000100010;
+        #(Wait -0.03) keypad = 0;
+        #(Wait);
+
+        #(Wait) clearn = 0;
+        #(Wait) clearn = 1;
+
+        $finish();
     end
 
 
